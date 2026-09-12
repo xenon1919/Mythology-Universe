@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mythology Universe{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <header class="site-header">
+        <a class="brand" href="{{ url_for('home') }}">
+            <span class="brand-glyph">&#9737;</span>
+            <span class="brand-text">MYTHOLOGY UNIVERSE</span>
+        </a>
+        <nav class="site-nav">
+            <a href="{{ url_for('chat_page') }}">Chat</a>
+            <a href="{{ url_for('characters_page') }}">Characters</a>
+            <a href="{{ url_for('stories_page') }}">Stories</a>
+            <a href="{{ url_for('timeline_page') }}">Timeline</a>
+            <a href="{{ url_for('sources_page') }}">Sources</a>
+        </nav>
+    </header>
+
+    <main class="site-main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <p>Answers are grounded in the documents indexed in this app's local knowledge base - not in the AI model's own training data.</p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

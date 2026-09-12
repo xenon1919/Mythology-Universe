@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Timeline - Mythology Universe{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>Timeline</h2>
+    <p>The traditional narrative order of major events in each epic. These are story sequences, not historical dates.</p>
+</div>
+
+<div class="timeline-tabs" id="timeline-tabs"></div>
+<div class="timeline-track" id="timeline-track">
+    <div class="empty-state">Loading timeline...</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/explorer.js') }}"></script>
+<script>MythologyExplorer.initTimeline();</script>
+{% endblock %}

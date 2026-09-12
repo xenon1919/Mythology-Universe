@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Characters - Mythology Universe{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>Character Explorer</h2>
+    <p>Every name below was found in the knowledge base's own metadata - search or pick one to see what's actually indexed about them.</p>
+</div>
+
+<div class="search-row">
+    <input type="text" class="text-input" id="character-search" placeholder="Search for a character (e.g. Karna, Sita, Ganesha)...">
+</div>
+
+<div class="card-grid" id="character-grid">
+    <div class="empty-state">Loading characters...</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/explorer.js') }}"></script>
+<script>MythologyExplorer.initCharacterList();</script>
+{% endblock %}

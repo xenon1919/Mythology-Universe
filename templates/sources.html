@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Sources - Mythology Universe{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>Knowledge Base Sources</h2>
+    <p>A transparency view into exactly what has been ingested into ChromaDB - nothing shown here is inferred.</p>
+</div>
+
+<div id="sources-list">
+    <div class="empty-state">Loading sources...</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/explorer.js') }}"></script>
+<script>MythologyExplorer.initSources();</script>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Chat - Mythology Universe{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>Ask the Universe</h2>
+    <p>Answers are generated only from retrieved passages in the knowledge base. If nothing relevant is found, you'll be told so instead of getting a guess.</p>
+    <button class="btn" id="new-conversation-btn" type="button">Start a new conversation</button>
+</div>
+
+<div class="chat-shell panel">
+    <div class="chat-log" id="chat-log">
+        <div class="empty-state" id="chat-empty">Ask a question to begin - e.g. "Who was Karna?"</div>
+    </div>
+    <form class="chat-input-row" id="chat-form">
+        <input type="text" class="text-input" id="chat-input" placeholder="Ask anything about Indian mythology..." autocomplete="off">
+        <button type="submit" class="btn" id="chat-send-btn">Ask</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}

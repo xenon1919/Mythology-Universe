@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Mythology Universe{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1 class="hero-title">MYTHOLOGY UNIVERSE</h1>
+    <p class="hero-tagline">Explore the stories, characters and mysteries of Indian mythology - every answer grounded in indexed source material, with citations.</p>
+
+    <form class="hero-search" id="hero-search-form">
+        <input type="text" class="text-input" id="hero-search-input" placeholder="Ask anything about Indian mythology..." autocomplete="off">
+        <button type="submit" class="btn">Explore the Universe</button>
+    </form>
+
+    <div class="examples">
+        <h3>Try asking</h3>
+        <div class="example-grid" id="example-grid">
+            <button class="example-chip">Who was Karna?</button>
+            <button class="example-chip">How were Krishna and Arjuna connected?</button>
+            <button class="example-chip">Why did Ravana abduct Sita?</button>
+            <button class="example-chip">Who were the parents of Ganesha?</button>
+            <button class="example-chip">Why did the Kurukshetra war happen?</button>
+            <button class="example-chip">What happened to Abhimanyu?</button>
+            <button class="example-chip">How was Hanuman connected to Rama?</button>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% endblock %}

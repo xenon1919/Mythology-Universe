@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ name }} - Mythology Universe{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <p><a href="{{ url_for('characters_page') }}">&larr; All characters</a></p>
+    <h2 id="character-name">{{ name }}</h2>
+</div>
+
+<div id="character-content">
+    <div class="empty-state">Looking up {{ name }} in the knowledge base...</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/explorer.js') }}"></script>
+<script>MythologyExplorer.initCharacterDetail({{ name | tojson }});</script>
+{% endblock %}
