@@ -7,10 +7,6 @@ source (e.g. "Mahabharata") so retrieval can filter to it. A regex/keyword
 check is fast, free, and predictable, and the spec explicitly asks to keep
 this step simple rather than building a second AI agent for it.
 """
-import re
-
-import config
-
 _SOURCE_KEYWORDS = {
     "Ramayana": ["ramayana"],
     "Mahabharata": ["mahabharata", "mahabharat"],

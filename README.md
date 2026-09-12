@@ -150,9 +150,12 @@ mythology-universe/
 │   └── catalog.py           Aggregates real indexed metadata for the UI
 │
 ├── templates/               Jinja2 page shells (data is fetched client-side)
-└── static/
-    ├── css/style.css
-    └── js/{app,chat,explorer}.js
+├── static/
+│   ├── css/style.css
+│   └── js/{app,chat,explorer}.js
+│
+├── tests/                   pytest suite - see "Testing & CI" below
+└── .github/workflows/ci.yml GitHub Actions: lint + test on every push
 ```
 
 ## Installation (using uv)
@@ -274,6 +277,22 @@ instead of failing silently.
 - **Cosine similarity math**: the ChromaDB collection is created with
   `hnsw:space: cosine`, so `similarity = 1 - distance` directly - no dependency
   on LangChain's internal relevance-score normalization.
+
+## Testing & CI
+
+```bash
+uv pip install -r requirements-dev.txt
+uv run ruff check .     # lint - unused imports, undefined names, syntax issues
+uv run pytest -v        # unit tests + one real ingest->retrieve integration test
+```
+
+The test suite (`tests/`) covers the parts of the pipeline that don't need a
+Groq API key: frontmatter parsing, chunking, prompt building, query
+classification, and one end-to-end test that ingests a sample document into a
+throwaway ChromaDB collection and confirms retrieval actually finds it.
+`.github/workflows/ci.yml` runs both of these on every push and pull request
+to `main` via GitHub Actions - no secrets required, since nothing in CI calls
+the LLM.
 
 ## Future improvements
 

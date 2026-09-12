@@ -1,0 +1,4 @@
+# Dev-only tools, kept separate from requirements.txt so a production
+# install doesn't pull in things it never needs.
+pytest>=8.0
+ruff>=0.6
